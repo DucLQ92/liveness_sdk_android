@@ -18,3 +18,6 @@ add_library( # Specifies the name of the library.
 
              # Provides a relative path to your source file(s).
              secrets.cpp )
+
+# force linker use 16KB page size
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--max-page-size=16384")
