@@ -9,6 +9,8 @@ android {
     namespace 'com.liveness.sdk.corev3'
     compileSdk 33
 
+    ndkVersion "27.0.12077973"
+
     defaultConfig {
         minSdk 24
     }
@@ -26,8 +28,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding true
@@ -64,6 +70,7 @@ dependencies {
     implementation('com.nimbusds:nimbus-jose-jwt:9.31')
     implementation('commons-codec:commons-codec:1.16.0')
 
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.0.4"
 
 }
 //afterEvaluate {
